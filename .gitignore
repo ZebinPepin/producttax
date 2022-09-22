@@ -1,32 +1,69 @@
-# Prerequisites
-*.d
+#include <iostream>
+#include <iomanip>
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+using std::cout;
+using std::cin;
+using std::setprecision;
+using std::fixed;
 
-# Precompiled Headers
-*.gch
-*.pch
+int main() {
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+        // ASK USER TO ENTER THE PRICE OF PRODUCT
 
-# Fortran module files
-*.mod
-*.smod
+        cout << "Enter the price: ";
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+        // CREATE VARIABLE TO STORE PRICE OF PRODUCT
 
-# Executables
-*.exe
-*.out
-*.app
+        float price;
+        cin >> price;
+
+        // ASK USER TO ENTER A COUPON CODE
+
+        cout << "Enter a coupon code: ";
+
+        // CREATE VARIABLE TO STORE COUPON CODE
+
+        int coupon_code;
+        cin >> coupon_code;
+
+        // CHECK IF CODE IS VALID
+
+        if (coupon_code == 1307)
+{
+                // USER ENTER CORRECT CODE
+                // PRINT: YOU RECEIVED $3.00 OFF
+
+                cout << "You have received $3 off! \n";
+
+                // TAKE $3.00 FROM THE PRICE
+                price = price - 3;
+
+                cout << "Updated price: " << price << " \n";
+}
+        else if (coupon_code = 5678) {
+                // coupon 2: 10% off for 5678
+                cout << "You received 10% off \n";
+                // take 10% off
+                price = price * (1-0.01);
+                cout << "Updated Price: " << price << "\n";
+}
+
+        // CALCULATE TAX
+
+        float tax = price * 0.07;
+
+        // PRINT TAX ON SCREEN
+
+        cout << fixed << setprecision(2);
+        cout << "Calculated Tax: " << tax << "\n";
+
+        // FIND THE TOTAL PRICE ( IN total_price )
+
+        float total_price = price + tax;
+
+        // PRINT TOTAL PRICE
+
+        cout << "Total price: " << total_price << "\n";
+
+        return 0;
+}
